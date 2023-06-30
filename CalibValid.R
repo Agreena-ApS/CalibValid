@@ -35,35 +35,39 @@ problem_rows <- test_data_source(data_source)
 # Perform calibration using the specified parameters
 calib_output <- calibration(data_source, stopval = 1, maxeval = 1, lb = 0.8, ub = 1.2)
 
+weighted_mean <- function(x, n) {
+  sum(x * n) / sum(n)
+}
+
 # Calculate mean bias for each combination of Publication_ID, Practice_Category, climate_zone, and CFGs
 bias_pooled_study <- calib_output[["all_metrics"]] %>%
   group_by(Publication_ID, Practice_Category, climate_zone, CFGs) %>%
-  summarise(mean_bias = mean(bias))
+  summarise(mean_bias = weighted_mean(bias, fold_test_size))
 
 # Calculate mean bias for each combination of Practice_Category, climate_zone, and CFGs
 bias_pooled_comb <- calib_output[["all_metrics"]] %>%
   group_by(Practice_Category, climate_zone, CFGs) %>%
-  summarise(mean_bias = mean(bias))
+  summarise(mean_bias = weighted_mean(bias, fold_test_size))
 
 # Calculate mean bias for all data points
 bias_pooled_all <- calib_output[["all_metrics"]] %>%
   ungroup() %>%
-  summarise(mean_bias = mean(bias))
+  summarise(mean_bias = weighted_mean(bias, fold_test_size))
 
 # Calculate mean RMSE for each combination of Publication_ID, Practice_Category, climate_zone, and CFGs
 rmse_pooled_study <- calib_output[["all_metrics"]] %>%
   group_by(Publication_ID, Practice_Category, climate_zone, CFGs) %>%
-  summarise(mean_rmse = mean(rmse))
+  summarise(mean_rmse = weighted_mean(rmse, fold_test_size))
 
 # Calculate mean RMSE for each combination of Practice_Category, climate_zone, and CFGs
 rmse_pooled_comb <- calib_output[["all_metrics"]] %>%
   group_by(Practice_Category, climate_zone, CFGs) %>%
-  summarise(mean_rmse = mean(rmse))
+  summarise(mean_rmse = weighted_mean(rmse, fold_test_size))
 
 # Calculate mean RMSE for all data points
 rmse_pooled_all <- calib_output[["all_metrics"]] %>%
   ungroup() %>%
-  summarise(mean_rmse = mean(rmse))
+  summarise(mean_rmse = weighted_mean(rmse, fold_test_size))
 
 # Calculate confidence intervals for calibration output data
 Cis <- conf_int(calib_output[["data_out"]])
