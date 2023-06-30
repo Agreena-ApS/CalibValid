@@ -1,0 +1,21 @@
+id, fertilizer_type, carbon_content
+2371,Cattle Digestate - 0.6%N,11.80
+2380,Cattle Manure - 0.6%N,11.80
+2390,Cattle (Digestate 0.26%N),2.9
+2381,Cattle ( Slurry 0.26%N),2.9
+2374,Compost (zero Emission) 1%N,29.2
+2372,Compost (fully aerated Production) 1%N,29.2
+2373,Compost (non-fully aerated Production)1%N, 29.2
+2388,Horse Digestate - 0.7%N,6.40
+2382,Horse Manure -0.7%N,6.40
+2386,Separated Pig Slurry (Liquid Part) 0.36%N,2.46
+2376,Pig Digestate - 0.7%N,3.53
+2383,Pig Manure - 0.7%N,3.53
+2377,Poultry Layer Digestate - 1.9%N,3.98
+2385,Poultry Layer Manure - 1.9%N,3.98
+2379,Brioler / Turkey Litter - 3%N,48.10
+2378,Sheep Digestate - 0.7%N,16.54
+2387,Sheep Manure - 0.7%N,16.54
+2384,Pig (Slurry0.36%N),2.46
+2375,Pig (Digestate 0.36%N),2.46
+2389,Separated Pig Slurry (solid Part) 0.5%N, 2.46
