@@ -33,7 +33,7 @@ data_source <- expand_data_set(data_source)
 problem_rows <- test_data_source(data_source)
 
 # Perform calibration using the specified parameters
-calib_output <- calibration(data_source2, stopval = 1, maxeval = 1, lb = 0.8, ub = 1.2)
+calib_output <- calibration(data_source, stopval = 1, maxeval = 1, lb = 0.8, ub = 1.2)
 
 # Calculate mean bias for each combination of Publication_ID, Practice_Category, climate_zone, and CFGs
 bias_pooled_study <- calib_output[["all_metrics"]] %>%
