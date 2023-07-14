@@ -19,7 +19,7 @@ setwd("/Users/marcospaulopedrosaalves/Documents/Git/CalibValid")
 plots_path <- "plots"
 
 # Set the option for calibration inputs directory (used to load fertlizer content, country yields and etc)
-options(calib_inputs = "data")
+options(param_inputs = "data")
 
 # Read data from a Google Sheets
 data_source <- read_sheet("1GJFvOWphkvXGKi-8h-IV4EXviaxa8hCcPembe-XdGSU", range = "A4:AP664", col_names = F)
