@@ -13,7 +13,7 @@ log_threshold(TRACE)
 set.seed(123)
 
 # Set the working directory to the appropriate location
-setwd("/Users/marcospaulopedrosaalves/Documents/Git/CalibValid")
+setwd("CalibValid")
 
 # Specify the folder where plots will be saved
 plots_path <- "plots"
